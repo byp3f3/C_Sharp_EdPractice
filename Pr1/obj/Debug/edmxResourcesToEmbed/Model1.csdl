@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BooksModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Book">
+    <Key>
+      <PropertyRef Name="ID_Book" />
+    </Key>
+    <Property Name="ID_Book" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Book_name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Human" Relationship="Self.FK__Human__Book_ID__4E88ABD4" FromRole="Book" ToRole="Human" />
+  </EntityType>
+  <EntityType Name="Human">
+    <Key>
+      <PropertyRef Name="ID_ApplicationReceiver" />
+    </Key>
+    <Property Name="ID_ApplicationReceiver" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Surname" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="FirstName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Middle_name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Book_ID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Book" Relationship="Self.FK__Human__Book_ID__4E88ABD4" FromRole="Human" ToRole="Book" />
+  </EntityType>
+  <Association Name="FK__Human__Book_ID__4E88ABD4">
+    <End Role="Book" Type="Self.Book" Multiplicity="1" />
+    <End Role="Human" Type="Self.Human" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Book">
+        <PropertyRef Name="ID_Book" />
+      </Principal>
+      <Dependent Role="Human">
+        <PropertyRef Name="Book_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="BooksEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Book" EntityType="Self.Book" />
+    <EntitySet Name="Human" EntityType="Self.Human" />
+    <AssociationSet Name="FK__Human__Book_ID__4E88ABD4" Association="Self.FK__Human__Book_ID__4E88ABD4">
+      <End Role="Book" EntitySet="Book" />
+      <End Role="Human" EntitySet="Human" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
