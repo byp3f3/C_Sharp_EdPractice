@@ -24,3 +24,13 @@ C:\Users\HP\Desktop\work\С# pract\Pr1\Pr1\bin\Debug\EntityFramework.SqlServer.x
 C:\Users\HP\Desktop\work\С# pract\Pr1\Pr1\bin\Debug\ru\EntityFramework.resources.dll
 C:\Users\HP\Desktop\work\С# pract\Pr1\Pr1\obj\Debug\Pr1_Content.g.cs
 C:\Users\HP\Desktop\work\С# pract\Pr1\Pr1\obj\Debug\Pr1.csproj.CopyComplete
+C:\Users\HP\Desktop\work\С# pract\Pr1\Pr1\bin\Debug\MaterialDesignColors.dll
+C:\Users\HP\Desktop\work\С# pract\Pr1\Pr1\bin\Debug\MaterialDesignThemes.Wpf.dll
+C:\Users\HP\Desktop\work\С# pract\Pr1\Pr1\bin\Debug\Microsoft.Xaml.Behaviors.dll
+C:\Users\HP\Desktop\work\С# pract\Pr1\Pr1\bin\Debug\MaterialDesignColors.pdb
+C:\Users\HP\Desktop\work\С# pract\Pr1\Pr1\bin\Debug\MaterialDesignThemes.Wpf.pdb
+C:\Users\HP\Desktop\work\С# pract\Pr1\Pr1\bin\Debug\MaterialDesignThemes.Wpf.xml
+C:\Users\HP\Desktop\work\С# pract\Pr1\Pr1\bin\Debug\Microsoft.Xaml.Behaviors.pdb
+C:\Users\HP\Desktop\work\С# pract\Pr1\Pr1\bin\Debug\Microsoft.Xaml.Behaviors.xml
+C:\Users\HP\Desktop\work\С# pract\Pr1\Pr1\bin\Debug\ru\EntityFramework.SqlServer.resources.dll
+C:\Users\HP\Desktop\work\С# pract\Pr1\Pr1\obj\Debug\App.baml

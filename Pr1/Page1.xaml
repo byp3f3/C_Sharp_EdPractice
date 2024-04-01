@@ -1,4 +1,5 @@
 ﻿<Page x:Class="Pr1.Page1"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -9,6 +10,26 @@
       Title="Page1">
 
     <Grid>
-        <DataGrid x:Name="humanDgr" CanUserAddRows="False"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="7*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <DataGrid x:Name="humanDgr" CanUserAddRows="False" Grid.ColumnSpan="4" SelectionChanged="humanDgr_SelectionChanged"/>
+        <TextBox x:Name="surname" Grid.Row="1" Grid.Column="0" materialDesign:HintAssist.Hint="Введите фамилию"/>
+        <TextBox x:Name="name" Grid.Row="1" Grid.Column="1" materialDesign:HintAssist.Hint="Введите имя"/>
+        <TextBox x:Name="midname" Grid.Row="1" Grid.Column="2" materialDesign:HintAssist.Hint="Введите отчество"/>
+        <ComboBox x:Name="bookCbx" Grid.Row="1" Grid.Column="3" DisplayMemberPath="Book_name" SelectedValuePath="ID_Book" materialDesign:HintAssist.Hint="Выберите книгу"/>
+        <Button x:Name="add" Content="Добавить"  Grid.Row="2" Grid.ColumnSpan="4" Click="add_Click" Background="Pink"/>
+        <Button x:Name="change" Content="Изменить"  Grid.Row="3" Grid.ColumnSpan="4" Click="change_Click" Background="Pink"/>
+        <Button x:Name="del" Content="Удалить"  Grid.Row="4" Grid.ColumnSpan="4" Click="del_Click" Background="Pink"/>
     </Grid>
 </Page>

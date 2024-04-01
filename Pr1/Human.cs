@@ -20,6 +20,6 @@ namespace Pr1
         public string Middle_name { get; set; }
         public int Book_ID { get; set; }
     
-        public virtual Book Book { get; set; }
+        public virtual Book Book { private get; set; }
     }
 }
