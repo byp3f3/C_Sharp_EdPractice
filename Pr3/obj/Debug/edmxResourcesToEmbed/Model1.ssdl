@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище BooksModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Book">
+    <Key>
+      <PropertyRef Name="ID_Book" />
+    </Key>
+    <Property Name="ID_Book" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Book_name" Type="nvarchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Human">
+    <Key>
+      <PropertyRef Name="ID_Human" />
+    </Key>
+    <Property Name="ID_Human" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Surname" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Middle_name" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Book_ID" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__Human__Book_ID__4BAC3F29">
+    <End Role="Book" Type="Self.Book" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Human" Type="Self.Human" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Book">
+        <PropertyRef Name="ID_Book" />
+      </Principal>
+      <Dependent Role="Human">
+        <PropertyRef Name="Book_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Хранилище BooksModelContainer">
+    <EntitySet Name="Book" EntityType="Self.Book" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Human" EntityType="Self.Human" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Human__Book_ID__4BAC3F29" Association="Self.FK__Human__Book_ID__4BAC3F29">
+      <End Role="Book" EntitySet="Book" />
+      <End Role="Human" EntitySet="Human" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
