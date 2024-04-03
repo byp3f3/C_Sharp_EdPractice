@@ -7,10 +7,10 @@
 <DiagramLayout xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ex:showrelationlabel="False" ViewPortX="0" ViewPortY="0" xmlns:ex="urn:schemas-microsoft-com:xml-msdatasource-layout-extended" xmlns="urn:schemas-microsoft-com:xml-msdatasource-layout">
   <Shapes>
     <Shape ID="DesignTable:Book" ZOrder="3" X="70" Y="70" Height="135" Width="202" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="76" />
-    <Shape ID="DesignTable:Human" ZOrder="2" X="342" Y="70" Height="250" Width="218" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="168" />
+    <Shape ID="DesignTable:Human" ZOrder="1" X="342" Y="70" Height="273" Width="218" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="145" />
   </Shapes>
   <Connectors>
-    <Connector ID="DesignRelation:FK__Human__Book_ID__4BAC3F29" ZOrder="1" LineWidth="11">
+    <Connector ID="DesignRelation:FK__Human__Book_ID__4BAC3F29" ZOrder="2" LineWidth="11">
       <RoutePoints>
         <Point>
           <X>272</X>

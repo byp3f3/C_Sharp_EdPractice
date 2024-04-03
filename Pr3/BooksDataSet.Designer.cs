@@ -609,8 +609,6 @@ namespace Pr3 {
             
             private global::System.Data.DataColumn columnBook_ID;
             
-            private global::System.Data.DataColumn columnBook_name;
-            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public HumanDataTable() {
@@ -686,14 +684,6 @@ namespace Pr3 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn Book_nameColumn {
-                get {
-                    return this.columnBook_name;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -729,15 +719,14 @@ namespace Pr3 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public HumanRow AddHumanRow(string Surname, string FirstName, string Middle_name, BookRow parentBookRowByFK__Human__Book_ID__4BAC3F29, string Book_name) {
+            public HumanRow AddHumanRow(string Surname, string FirstName, string Middle_name, BookRow parentBookRowByFK__Human__Book_ID__4BAC3F29) {
                 HumanRow rowHumanRow = ((HumanRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         Surname,
                         FirstName,
                         Middle_name,
-                        null,
-                        Book_name};
+                        null};
                 if ((parentBookRowByFK__Human__Book_ID__4BAC3F29 != null)) {
                     columnValuesArray[4] = parentBookRowByFK__Human__Book_ID__4BAC3F29[0];
                 }
@@ -775,7 +764,6 @@ namespace Pr3 {
                 this.columnFirstName = base.Columns["FirstName"];
                 this.columnMiddle_name = base.Columns["Middle_name"];
                 this.columnBook_ID = base.Columns["Book_ID"];
-                this.columnBook_name = base.Columns["Book_name"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -791,8 +779,6 @@ namespace Pr3 {
                 base.Columns.Add(this.columnMiddle_name);
                 this.columnBook_ID = new global::System.Data.DataColumn("Book_ID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnBook_ID);
-                this.columnBook_name = new global::System.Data.DataColumn("Book_name", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnBook_name);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnID_Human}, true));
                 this.columnID_Human.AutoIncrement = true;
@@ -808,8 +794,6 @@ namespace Pr3 {
                 this.columnMiddle_name.AllowDBNull = false;
                 this.columnMiddle_name.MaxLength = 100;
                 this.columnBook_ID.AllowDBNull = false;
-                this.columnBook_name.AllowDBNull = false;
-                this.columnBook_name.MaxLength = 100;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1050,17 +1034,6 @@ namespace Pr3 {
                 }
                 set {
                     this[this.tableHuman.Book_IDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string Book_name {
-                get {
-                    return ((string)(this[this.tableHuman.Book_nameColumn]));
-                }
-                set {
-                    this[this.tableHuman.Book_nameColumn] = value;
                 }
             }
             
@@ -1592,7 +1565,6 @@ namespace Pr3.BooksDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("FirstName", "FirstName");
             tableMapping.ColumnMappings.Add("Middle_name", "Middle_name");
             tableMapping.ColumnMappings.Add("Book_ID", "Book_ID");
-            tableMapping.ColumnMappings.Add("Book_name", "Book_name");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -1606,11 +1578,10 @@ namespace Pr3.BooksDataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[4];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT ID_Human, Surname, FirstName, Middle_name, Book_ID,  dbo.Book.Book_name FR" +
-                "OM dbo.Human\r\nINNER JOIN dbo.Book ON dbo.Human.Book_ID = dbo.Book.ID_Book";
+            this._commandCollection[0].CommandText = "SELECT ID_Human, Surname, FirstName, Middle_name, Book_ID FROM dbo.Human\r\n";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
@@ -1618,6 +1589,19 @@ namespace Pr3.BooksDataSetTableAdapters {
                 "ook_ID, Book.Book_name\r\nFROM     Human INNER JOIN\r\n                  Book ON Hum" +
                 "an.Book_ID = Book.ID_Book";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = "SELECT ID_Human, Surname, FirstName, Middle_name, Book_ID FROM dbo.Human\r\nWHERE B" +
+                "ook_ID = @bookId";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@bookId", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Book_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[3].Connection = this.Connection;
+            this._commandCollection[3].CommandText = "SELECT  Human.ID_Human, Human.Surname, Human.FirstName, Human.Middle_name, Human." +
+                "Book_ID\r\nFROM     Human \r\nWHERE FirstName like \'%\'+@toSearch+\'%\'  or Surname lik" +
+                "e \'%\'+@toSearch+\'%\' or Middle_name like \'%\'+@toSearch+\'%\'\r\n";
+            this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@toSearch", global::System.Data.SqlDbType.NVarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "FirstName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1663,6 +1647,35 @@ namespace Pr3.BooksDataSetTableAdapters {
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual BooksDataSet.HumanDataTable GetDataBy() {
             this.Adapter.SelectCommand = this.CommandCollection[1];
+            BooksDataSet.HumanDataTable dataTable = new BooksDataSet.HumanDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual BooksDataSet.HumanDataTable SearchById(int bookId) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(bookId));
+            BooksDataSet.HumanDataTable dataTable = new BooksDataSet.HumanDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual BooksDataSet.HumanDataTable SearchByName(string toSearch) {
+            this.Adapter.SelectCommand = this.CommandCollection[3];
+            if ((toSearch == null)) {
+                throw new global::System.ArgumentNullException("toSearch");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(toSearch));
+            }
             BooksDataSet.HumanDataTable dataTable = new BooksDataSet.HumanDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;

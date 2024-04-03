@@ -29,3 +29,7 @@ C:\Users\HP\Desktop\work\С# pract\Pr3\Pr3\bin\Debug\EntityFramework.xml
 C:\Users\HP\Desktop\work\С# pract\Pr3\Pr3\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\HP\Desktop\work\С# pract\Pr3\Pr3\bin\Debug\ru\EntityFramework.resources.dll
 C:\Users\HP\Desktop\work\С# pract\Pr3\Pr3\obj\Debug\Pr3_Content.g.cs
+C:\Users\HP\Desktop\work\С# pract\Pr3\Pr3\obj\Debug\Page1.g.cs
+C:\Users\HP\Desktop\work\С# pract\Pr3\Pr3\obj\Debug\Page1.baml
+C:\Users\HP\Desktop\work\С# pract\Pr3\Pr3\obj\Debug\Page2.g.cs
+C:\Users\HP\Desktop\work\С# pract\Pr3\Pr3\obj\Debug\Page2.baml

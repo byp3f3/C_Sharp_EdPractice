@@ -6,21 +6,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Pr3"
         mc:Ignorable="d"
-        Loaded="Window_Loaded"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <!--EF-->
-        <!--<DataGrid x:Name="humanDgr" AutoGenerateColumns="False" CanUserAddRows="False">
-            <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding ID_Human}" Header="ID"/>
-                <DataGridTextColumn Binding="{Binding Surname}" Header="Фамилия"/>
-                <DataGridTextColumn Binding="{Binding FirstName}" Header="Имя"/>
-                <DataGridTextColumn Binding="{Binding Middle_name}" Header="Отчество"/>
-                <DataGridTextColumn Binding="{Binding Book.Book_name}" Header="Любимая книга"/>
-            </DataGrid.Columns>
-        </DataGrid>-->
-        
-        <!--DataSet-->
-        <DataGrid x:Name="humanDgr" CanUserAddRows="False" />
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Button x:Name="First" Content="Первая таблица" Click="First_Click"/>
+        <Button x:Name="Second" Content="Вторая таблица" Grid.Column="1" Click="Second_Click" />
+        <Frame x:Name="PageFrame" Grid.Row="1" Grid.ColumnSpan="2" NavigationUIVisibility="Hidden"/>
     </Grid>
 </Window>

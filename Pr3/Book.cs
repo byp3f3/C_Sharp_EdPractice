@@ -24,6 +24,6 @@ namespace Pr3
         public string Book_name { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Human> Human { get; set; }
+        public virtual ICollection<Human> Human { private get; set; }
     }
 }

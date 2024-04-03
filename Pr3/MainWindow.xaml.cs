@@ -1,6 +1,7 @@
 ﻿using Pr3.BooksDataSetTableAdapters;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,31 +17,16 @@ using System.Windows.Shapes;
 
 namespace Pr3
 {
-    /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
-        //EF
-        //private BooksEntities books = new BooksEntities();
-
-        //DataSet
-        HumanTableAdapter human = new HumanTableAdapter();
-        public MainWindow()
+        private void First_Click(object sender, RoutedEventArgs e)
         {
-            InitializeComponent();
-            //EF
-            //humanDgr.ItemsSource = books.Human.ToList();
-
-            //DataSet
-            humanDgr.ItemsSource = human.GetDataBy();
+            PageFrame.Content = new Page1();
         }
 
-        private void Window_Loaded(object sender, RoutedEventArgs e)
+        private void Second_Click(object sender, RoutedEventArgs e)
         {
-            humanDgr.Columns[0].Visibility = Visibility.Hidden;
-            humanDgr.Columns[4].Visibility = Visibility.Hidden;
-
+            PageFrame.Content = new Page2();
         }
     }
 }
