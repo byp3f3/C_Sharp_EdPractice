@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f15b95d86197412f9f91c77464257ba4" Name="Diagram1">
+        <EntityTypeShape EntityType="BookstoreModel.Author" Width="1.5" PointX="5" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookstoreModel.Book" Width="1.5" PointX="11.5" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookstoreModel.Cheque" Width="1.5" PointX="9.75" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookstoreModel.City" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookstoreModel.LoginPassword" Width="1.5" PointX="7.5" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookstoreModel.PublishingHouse" Width="2.875" PointX="1.375" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookstoreModel.Purchase" Width="1.5" PointX="7.5" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookstoreModel.UserRole" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookstoreModel.Users" Width="1.5" PointX="5.25" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookstoreModel.Workplace" Width="1.5" PointX="3" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookstoreModel.WorkplaceType" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="BookstoreModel.FK__Book__Author_ID__4E88ABD4" ManuallyRouted="false" />
+        <AssociationConnector Association="BookstoreModel.FK__Book__PubHouse_I__4F7CD00D" ManuallyRouted="false" />
+        <AssociationConnector Association="BookstoreModel.FK__Cheque__Book_ID__534D60F1" ManuallyRouted="false" />
+        <AssociationConnector Association="BookstoreModel.FK__Cheque__Purchase__52593CB8" ManuallyRouted="false" />
+        <AssociationConnector Association="BookstoreModel.FK__Workplace__City___3E52440B" ManuallyRouted="false" />
+        <AssociationConnector Association="BookstoreModel.FK__LoginPass__Users__44FF419A" ManuallyRouted="false" />
+        <AssociationConnector Association="BookstoreModel.FK__Purchase__Users___47DBAE45" ManuallyRouted="false" />
+        <AssociationConnector Association="BookstoreModel.FK__Users__Role_ID__412EB0B6" ManuallyRouted="false" />
+        <AssociationConnector Association="BookstoreModel.FK__Users__Workplace__4222D4EF" ManuallyRouted="false" />
+        <AssociationConnector Association="BookstoreModel.FK__Workplace__WType__3D5E1FD2" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

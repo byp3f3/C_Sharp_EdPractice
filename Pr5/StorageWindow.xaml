@@ -1,0 +1,25 @@
+﻿<Window x:Class="Pr5.StorageWindow"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Pr5"
+        mc:Ignorable="d"
+        Title="StorageWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Button x:Name="book" Content="Книги" Click="book_Click" />
+        <Button x:Name="author" Content="Авторы" Grid.Column="1" Click="author_Click"/>
+        <Button x:Name="pubhouse" Content="Издательства" Grid.Column="2" Click="pubhouse_Click"/>
+        <Frame x:Name="PageFrame" Grid.Row="1" Grid.ColumnSpan="3" NavigationUIVisibility="Hidden"/>
+    </Grid>
+</Window>

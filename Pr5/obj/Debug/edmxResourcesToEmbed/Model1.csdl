@@ -1,0 +1,315 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BookstoreModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Author">
+    <Key>
+      <PropertyRef Name="ID_Author" />
+    </Key>
+    <Property Name="ID_Author" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Surname" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="FirstName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MiddleName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Book" Relationship="Self.FK__Book__Author_ID__4E88ABD4" FromRole="Author" ToRole="Book" />
+  </EntityType>
+  <EntityType Name="Book">
+    <Key>
+      <PropertyRef Name="ID_Book" />
+    </Key>
+    <Property Name="ID_Book" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Bookname" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Amount" Type="Int32" Nullable="false" />
+    <Property Name="Author_ID" Type="Int32" Nullable="false" />
+    <Property Name="PubHouse_ID" Type="Int32" Nullable="false" />
+    <Property Name="Cost" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+    <NavigationProperty Name="Author" Relationship="Self.FK__Book__Author_ID__4E88ABD4" FromRole="Book" ToRole="Author" />
+    <NavigationProperty Name="PublishingHouse" Relationship="Self.FK__Book__PubHouse_I__4F7CD00D" FromRole="Book" ToRole="PublishingHouse" />
+    <NavigationProperty Name="Cheque" Relationship="Self.FK__Cheque__Book_ID__534D60F1" FromRole="Book" ToRole="Cheque" />
+  </EntityType>
+  <EntityType Name="Cheque">
+    <Key>
+      <PropertyRef Name="ID_Cheque" />
+    </Key>
+    <Property Name="ID_Cheque" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Purchase_ID" Type="Int32" Nullable="false" />
+    <Property Name="Book_ID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Book" Relationship="Self.FK__Cheque__Book_ID__534D60F1" FromRole="Cheque" ToRole="Book" />
+    <NavigationProperty Name="Purchase" Relationship="Self.FK__Cheque__Purchase__52593CB8" FromRole="Cheque" ToRole="Purchase" />
+  </EntityType>
+  <EntityType Name="City">
+    <Key>
+      <PropertyRef Name="ID_City" />
+    </Key>
+    <Property Name="ID_City" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CityName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Workplace" Relationship="Self.FK__Workplace__City___3E52440B" FromRole="City" ToRole="Workplace" />
+  </EntityType>
+  <EntityType Name="LoginPassword">
+    <Key>
+      <PropertyRef Name="ID_LogPas" />
+    </Key>
+    <Property Name="ID_LogPas" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserLogin" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UserPassword" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Users_ID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Users" Relationship="Self.FK__LoginPass__Users__44FF419A" FromRole="LoginPassword" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="PublishingHouse">
+    <Key>
+      <PropertyRef Name="ID_PubHouse" />
+    </Key>
+    <Property Name="ID_PubHouse" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PHName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Book" Relationship="Self.FK__Book__PubHouse_I__4F7CD00D" FromRole="PublishingHouse" ToRole="Book" />
+  </EntityType>
+  <EntityType Name="Purchase">
+    <Key>
+      <PropertyRef Name="ID_Purchase" />
+    </Key>
+    <Property Name="ID_Purchase" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PurchaseDate" Type="DateTime" Precision="0" />
+    <Property Name="Cost" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="Payment" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="PurchaseChange" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="Users_ID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Cheque" Relationship="Self.FK__Cheque__Purchase__52593CB8" FromRole="Purchase" ToRole="Cheque" />
+    <NavigationProperty Name="Users" Relationship="Self.FK__Purchase__Users___47DBAE45" FromRole="Purchase" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="UserRole">
+    <Key>
+      <PropertyRef Name="ID_Role" />
+    </Key>
+    <Property Name="ID_Role" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RoleName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Users" Relationship="Self.FK__Users__Role_ID__412EB0B6" FromRole="UserRole" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="ID_User" />
+    </Key>
+    <Property Name="ID_User" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Surname" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="FirstName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MiddleName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Role_ID" Type="Int32" Nullable="false" />
+    <Property Name="Workplace_ID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="LoginPassword" Relationship="Self.FK__LoginPass__Users__44FF419A" FromRole="Users" ToRole="LoginPassword" />
+    <NavigationProperty Name="Purchase" Relationship="Self.FK__Purchase__Users___47DBAE45" FromRole="Users" ToRole="Purchase" />
+    <NavigationProperty Name="UserRole" Relationship="Self.FK__Users__Role_ID__412EB0B6" FromRole="Users" ToRole="UserRole" />
+    <NavigationProperty Name="Workplace" Relationship="Self.FK__Users__Workplace__4222D4EF" FromRole="Users" ToRole="Workplace" />
+  </EntityType>
+  <EntityType Name="Workplace">
+    <Key>
+      <PropertyRef Name="ID_Workplace" />
+    </Key>
+    <Property Name="ID_Workplace" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="WType_ID" Type="Int32" Nullable="false" />
+    <Property Name="City_ID" Type="Int32" Nullable="false" />
+    <Property Name="Street" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="House" Type="Int32" Nullable="false" />
+    <Property Name="Building" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="City" Relationship="Self.FK__Workplace__City___3E52440B" FromRole="Workplace" ToRole="City" />
+    <NavigationProperty Name="Users" Relationship="Self.FK__Users__Workplace__4222D4EF" FromRole="Workplace" ToRole="Users" />
+    <NavigationProperty Name="WorkplaceType" Relationship="Self.FK__Workplace__WType__3D5E1FD2" FromRole="Workplace" ToRole="WorkplaceType" />
+    <Property Name="WorkName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="WorkplaceType">
+    <Key>
+      <PropertyRef Name="ID_WType" />
+    </Key>
+    <Property Name="ID_WType" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TypeName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Workplace" Relationship="Self.FK__Workplace__WType__3D5E1FD2" FromRole="WorkplaceType" ToRole="Workplace" />
+  </EntityType>
+  <Association Name="FK__Book__Author_ID__4E88ABD4">
+    <End Role="Author" Type="Self.Author" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Book" Type="Self.Book" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Author">
+        <PropertyRef Name="ID_Author" />
+      </Principal>
+      <Dependent Role="Book">
+        <PropertyRef Name="Author_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Book__PubHouse_I__4F7CD00D">
+    <End Role="PublishingHouse" Type="Self.PublishingHouse" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Book" Type="Self.Book" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PublishingHouse">
+        <PropertyRef Name="ID_PubHouse" />
+      </Principal>
+      <Dependent Role="Book">
+        <PropertyRef Name="PubHouse_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Cheque__Book_ID__534D60F1">
+    <End Role="Book" Type="Self.Book" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Cheque" Type="Self.Cheque" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Book">
+        <PropertyRef Name="ID_Book" />
+      </Principal>
+      <Dependent Role="Cheque">
+        <PropertyRef Name="Book_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Cheque__Purchase__52593CB8">
+    <End Role="Purchase" Type="Self.Purchase" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Cheque" Type="Self.Cheque" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Purchase">
+        <PropertyRef Name="ID_Purchase" />
+      </Principal>
+      <Dependent Role="Cheque">
+        <PropertyRef Name="Purchase_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Workplace__City___3E52440B">
+    <End Role="City" Type="Self.City" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Workplace" Type="Self.Workplace" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="City">
+        <PropertyRef Name="ID_City" />
+      </Principal>
+      <Dependent Role="Workplace">
+        <PropertyRef Name="City_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__LoginPass__Users__44FF419A">
+    <End Role="Users" Type="Self.Users" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="LoginPassword" Type="Self.LoginPassword" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="ID_User" />
+      </Principal>
+      <Dependent Role="LoginPassword">
+        <PropertyRef Name="Users_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Purchase__Users___47DBAE45">
+    <End Role="Users" Type="Self.Users" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Purchase" Type="Self.Purchase" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="ID_User" />
+      </Principal>
+      <Dependent Role="Purchase">
+        <PropertyRef Name="Users_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Users__Role_ID__412EB0B6">
+    <End Role="UserRole" Type="Self.UserRole" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Users" Type="Self.Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserRole">
+        <PropertyRef Name="ID_Role" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="Role_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Users__Workplace__4222D4EF">
+    <End Role="Workplace" Type="Self.Workplace" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Users" Type="Self.Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Workplace">
+        <PropertyRef Name="ID_Workplace" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="Workplace_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Workplace__WType__3D5E1FD2">
+    <End Role="WorkplaceType" Type="Self.WorkplaceType" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Workplace" Type="Self.Workplace" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="WorkplaceType">
+        <PropertyRef Name="ID_WType" />
+      </Principal>
+      <Dependent Role="Workplace">
+        <PropertyRef Name="WType_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="BookstoreEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Author" EntityType="Self.Author" />
+    <EntitySet Name="Book" EntityType="Self.Book" />
+    <EntitySet Name="Cheque" EntityType="Self.Cheque" />
+    <EntitySet Name="City" EntityType="Self.City" />
+    <EntitySet Name="LoginPassword" EntityType="Self.LoginPassword" />
+    <EntitySet Name="PublishingHouse" EntityType="Self.PublishingHouse" />
+    <EntitySet Name="Purchase" EntityType="Self.Purchase" />
+    <EntitySet Name="UserRole" EntityType="Self.UserRole" />
+    <EntitySet Name="Users" EntityType="Self.Users" />
+    <EntitySet Name="Workplace" EntityType="Self.Workplace" />
+    <EntitySet Name="WorkplaceType" EntityType="Self.WorkplaceType" />
+    <AssociationSet Name="FK__Book__Author_ID__4E88ABD4" Association="Self.FK__Book__Author_ID__4E88ABD4">
+      <End Role="Author" EntitySet="Author" />
+      <End Role="Book" EntitySet="Book" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Book__PubHouse_I__4F7CD00D" Association="Self.FK__Book__PubHouse_I__4F7CD00D">
+      <End Role="PublishingHouse" EntitySet="PublishingHouse" />
+      <End Role="Book" EntitySet="Book" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Cheque__Book_ID__534D60F1" Association="Self.FK__Cheque__Book_ID__534D60F1">
+      <End Role="Book" EntitySet="Book" />
+      <End Role="Cheque" EntitySet="Cheque" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Cheque__Purchase__52593CB8" Association="Self.FK__Cheque__Purchase__52593CB8">
+      <End Role="Purchase" EntitySet="Purchase" />
+      <End Role="Cheque" EntitySet="Cheque" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Workplace__City___3E52440B" Association="Self.FK__Workplace__City___3E52440B">
+      <End Role="City" EntitySet="City" />
+      <End Role="Workplace" EntitySet="Workplace" />
+    </AssociationSet>
+    <AssociationSet Name="FK__LoginPass__Users__44FF419A" Association="Self.FK__LoginPass__Users__44FF419A">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="LoginPassword" EntitySet="LoginPassword" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Purchase__Users___47DBAE45" Association="Self.FK__Purchase__Users___47DBAE45">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Purchase" EntitySet="Purchase" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Users__Role_ID__412EB0B6" Association="Self.FK__Users__Role_ID__412EB0B6">
+      <End Role="UserRole" EntitySet="UserRole" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Users__Workplace__4222D4EF" Association="Self.FK__Users__Workplace__4222D4EF">
+      <End Role="Workplace" EntitySet="Workplace" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Workplace__WType__3D5E1FD2" Association="Self.FK__Workplace__WType__3D5E1FD2">
+      <End Role="WorkplaceType" EntitySet="WorkplaceType" />
+      <End Role="Workplace" EntitySet="Workplace" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

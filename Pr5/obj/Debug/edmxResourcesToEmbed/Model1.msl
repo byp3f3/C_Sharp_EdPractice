@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище BookstoreModelContainer" CdmEntityContainer="BookstoreEntities">
+    <EntitySetMapping Name="Author">
+      <EntityTypeMapping TypeName="BookstoreModel.Author">
+        <MappingFragment StoreEntitySet="Author">
+          <ScalarProperty Name="ID_Author" ColumnName="ID_Author" />
+          <ScalarProperty Name="Surname" ColumnName="Surname" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Book">
+      <EntityTypeMapping TypeName="BookstoreModel.Book">
+        <MappingFragment StoreEntitySet="Book">
+          <ScalarProperty Name="ID_Book" ColumnName="ID_Book" />
+          <ScalarProperty Name="Bookname" ColumnName="Bookname" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Author_ID" ColumnName="Author_ID" />
+          <ScalarProperty Name="PubHouse_ID" ColumnName="PubHouse_ID" />
+          <ScalarProperty Name="Cost" ColumnName="Cost" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cheque">
+      <EntityTypeMapping TypeName="BookstoreModel.Cheque">
+        <MappingFragment StoreEntitySet="Cheque">
+          <ScalarProperty Name="ID_Cheque" ColumnName="ID_Cheque" />
+          <ScalarProperty Name="Purchase_ID" ColumnName="Purchase_ID" />
+          <ScalarProperty Name="Book_ID" ColumnName="Book_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="City">
+      <EntityTypeMapping TypeName="BookstoreModel.City">
+        <MappingFragment StoreEntitySet="City">
+          <ScalarProperty Name="ID_City" ColumnName="ID_City" />
+          <ScalarProperty Name="CityName" ColumnName="CityName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LoginPassword">
+      <EntityTypeMapping TypeName="BookstoreModel.LoginPassword">
+        <MappingFragment StoreEntitySet="LoginPassword">
+          <ScalarProperty Name="ID_LogPas" ColumnName="ID_LogPas" />
+          <ScalarProperty Name="UserLogin" ColumnName="UserLogin" />
+          <ScalarProperty Name="UserPassword" ColumnName="UserPassword" />
+          <ScalarProperty Name="Users_ID" ColumnName="Users_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PublishingHouse">
+      <EntityTypeMapping TypeName="BookstoreModel.PublishingHouse">
+        <MappingFragment StoreEntitySet="PublishingHouse">
+          <ScalarProperty Name="ID_PubHouse" ColumnName="ID_PubHouse" />
+          <ScalarProperty Name="PHName" ColumnName="PHName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Purchase">
+      <EntityTypeMapping TypeName="BookstoreModel.Purchase">
+        <MappingFragment StoreEntitySet="Purchase">
+          <ScalarProperty Name="ID_Purchase" ColumnName="ID_Purchase" />
+          <ScalarProperty Name="PurchaseDate" ColumnName="PurchaseDate" />
+          <ScalarProperty Name="Cost" ColumnName="Cost" />
+          <ScalarProperty Name="Payment" ColumnName="Payment" />
+          <ScalarProperty Name="PurchaseChange" ColumnName="PurchaseChange" />
+          <ScalarProperty Name="Users_ID" ColumnName="Users_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserRole">
+      <EntityTypeMapping TypeName="BookstoreModel.UserRole">
+        <MappingFragment StoreEntitySet="UserRole">
+          <ScalarProperty Name="ID_Role" ColumnName="ID_Role" />
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="BookstoreModel.Users">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="ID_User" ColumnName="ID_User" />
+          <ScalarProperty Name="Surname" ColumnName="Surname" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+          <ScalarProperty Name="Role_ID" ColumnName="Role_ID" />
+          <ScalarProperty Name="Workplace_ID" ColumnName="Workplace_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Workplace">
+      <EntityTypeMapping TypeName="BookstoreModel.Workplace">
+        <MappingFragment StoreEntitySet="Workplace">
+          <ScalarProperty Name="WorkName" ColumnName="WorkName" />
+          <ScalarProperty Name="ID_Workplace" ColumnName="ID_Workplace" />
+          <ScalarProperty Name="WType_ID" ColumnName="WType_ID" />
+          <ScalarProperty Name="City_ID" ColumnName="City_ID" />
+          <ScalarProperty Name="Street" ColumnName="Street" />
+          <ScalarProperty Name="House" ColumnName="House" />
+          <ScalarProperty Name="Building" ColumnName="Building" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WorkplaceType">
+      <EntityTypeMapping TypeName="BookstoreModel.WorkplaceType">
+        <MappingFragment StoreEntitySet="WorkplaceType">
+          <ScalarProperty Name="ID_WType" ColumnName="ID_WType" />
+          <ScalarProperty Name="TypeName" ColumnName="TypeName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

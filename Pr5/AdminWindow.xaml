@@ -1,0 +1,30 @@
+﻿<Window x:Class="Pr5.AdminWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Pr5"
+        mc:Ignorable="d"
+        Title="AdminWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Button x:Name="role" Content="Роли" Click="role_Click"/>
+        <Button x:Name="user" Grid.Column="1" Content="Сотрудники" Click="user_Click"/>
+        <Button x:Name="logpas" Grid.Column="2" Content="Данные для авторизации" Click="logpas_Click"/>
+        <Button x:Name="workplace" Grid.Column="3" Content="Место работы" Click="workplace_Click"/>
+        <Button x:Name="city" Content="Город" Grid.Column="4" Click="city_Click" />
+        <Button x:Name="type" Content="Тип" Grid.Column="5" Click="type_Click" />
+        <Frame x:Name="PageFrame" Grid.Row="1" Grid.ColumnSpan="6" NavigationUIVisibility="Hidden"/>
+    </Grid>
+</Window>
